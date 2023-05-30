@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'cadastroProdutosStyle.css' %}" />
+    <title>Formulário</title>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="form-image"></div>
+      <div class="form">
+        <form action="{% url 'list_products' %}" method="post" novalidate>
+          {% csrf_token %}
+          <div class="form-header">
+            <div class="title">
+              <h1>Cadastre-se</h1>
+            </div>
+            <div class="login-button">
+              <button><a href="#">Entrar</a></button>
+            </div>
+          </div>
+
+          <div class="input-group">
+            <div class="input-box">
+              <label for="name">Nome</label>
+              <input
+                id="name"
+                type="text"
+                name="name"
+                placeholder="Digite o nome do produto"
+                required
+              />
+            </div>
+
+            <div class="input-box">
+              <label for="description">Descrição</label>
+              <input
+                id="description"
+                type="text"
+                name="description"
+                placeholder="Digite a descrição do produto"
+                required
+              />
+            </div>
+            <div class="input-box">
+              <label for="category">Categoria</label>
+              <input
+                id="category"
+                type="text"
+                name="category"
+                placeholder="Digite a categoria do produto"
+                required
+              />
+            </div>
+
+            <div class="input-box">
+              <label for="price">Preço</label>
+              <input
+                id="price"
+                type="text"
+                name="price"
+                placeholder="Digite o preço do produto"
+                required
+              />
+            </div>
+
+            <div class="input-box">
+              <label for="productqtt">Quantidades em Estoque</label>
+              <input
+                id="productqtt"
+                type="text"
+                name="productqtt"
+                placeholder="Digite a quantidade de produtos em estoque"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="continue-button">
+            <button><a href="#">Cadastrar</a></button>
+          </div>
+          <div>{{ form.description.errors}}</div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
